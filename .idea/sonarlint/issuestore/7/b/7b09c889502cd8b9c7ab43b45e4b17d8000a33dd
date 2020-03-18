@@ -1,0 +1,4 @@
+
+Zsquid:S1068"7Remove this unused "activityMainBinding" private field.(¬¶¹­ÿÿÿÿÿ8È‚ï¬.
+ksquid:UselessImportCheck";Remove this unused import 'android.database.DatabaseUtils'.(ÚÈ©‡øÿÿÿÿ8ÀËô¬.
+…squid:S1450"bRemove the "activityMainBinding" field and declare it as a local variable in the relevant methods.(¬¶¹­ÿÿÿÿÿ8ÀËô¬.
