@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         LoginViewModel model = ViewModelProviders.of(this).get(LoginViewModel.class);
 
+        activityMainBinding.setViewmodel(model);
+
         model.getLivedata().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {

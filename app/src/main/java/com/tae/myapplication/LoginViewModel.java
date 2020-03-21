@@ -28,7 +28,7 @@ public class LoginViewModel extends ViewModel {
     return liveData;
     }
 
-    private void loadCredentials() {
+    public void loadCredentials() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
