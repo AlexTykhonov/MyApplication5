@@ -1,13 +1,13 @@
 package com.tae.myapplication;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.databinding.ObservableField;
 
-public class Login {
+public class Login extends BaseObservable {
 
     private String username;
     private String password;
-
-
 
     public Login(String username, String password) {
         this.username = username;
@@ -17,6 +17,7 @@ public class Login {
     public Login() {
     }
 
+    @Bindable
     public String getUsername() {
         return username;
     }
@@ -25,6 +26,7 @@ public class Login {
         this.username = username;
     }
 
+    @Bindable
     public String getPassword() {
         return password;
     }

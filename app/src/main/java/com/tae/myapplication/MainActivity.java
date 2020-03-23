@@ -23,18 +23,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
         LoginViewModel model = ViewModelProviders.of(this).get(LoginViewModel.class);
-
         activityMainBinding.setViewmodel(model);
 
-        model.getLivedata().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                System.out.println("This is livedata MA - Shared Preferences -> "+sharedPreferences.getString("token","null"));
-                System.out.println("This is livedata from MainActivity-> "+s);
-            }
-        });
+//        model.getLivedata().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//                System.out.println("This is livedata MA - Shared Preferences -> "+sharedPreferences.getString("token","null"));
+//                System.out.println("This is livedata from MainActivity-> "+s);
+//            }
+//        });
     }
 }
 

@@ -2,6 +2,8 @@ package com.tae.myapplication;
 
 import android.content.SharedPreferences;
 
+import androidx.databinding.ObservableField;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -18,15 +20,19 @@ public class LoginViewModel extends ViewModel {
 
     SharedPreferences sharedPreferences= App.getSharedPreferences();
 
-    private MutableLiveData<String> liveData;
+    public MutableLiveData<String> email = new MutableLiveData<>();
+    public MutableLiveData<String> password = new MutableLiveData<>();
 
-    public MutableLiveData<String> getLivedata () {
-        if (liveData == null) {
-            liveData = new MutableLiveData<String >();
+    private MutableLiveData<Login> loginMutableLiveData;
+
+    LiveData<Login> getUser() {
+        if (loginMutableLiveData == null) {
+            loginMutableLiveData = new MutableLiveData<>();
         }
-        loadCredentials();
-    return liveData;
+        return loginMutableLiveData;
     }
+
+
 
     public void loadCredentials() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -35,18 +41,20 @@ public class LoginViewModel extends ViewModel {
                 .build();
 
         Api api = retrofit.create(Api.class);
-        Call<ResponseBody> call = api.getLogin(new Login("1","1"));
+        Login login = new Login(email.getValue(), password.getValue());
+        Call<ResponseBody> call = api.getLogin(login);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                liveData.setValue(response.headers().get("access-token"));
+             //   liveData.setValue(response.headers().get("access-token"));
 
                 SharedPreferences.Editor prefEditor = sharedPreferences.edit();
                 prefEditor.putString("token",response.headers().get("access-token"));
                 prefEditor.apply();
+                System.out.println("THIS IS ANSWER OF THE SERVER "+response.headers().get("access-token"));
 
-                System.out.println("This is livedata from ViewModel -> "+liveData.getValue());
+               // System.out.println("This is livedata from ViewModel -> "+liveData.getValue());
             }
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
@@ -55,3 +63,5 @@ public class LoginViewModel extends ViewModel {
         });
     }
 }
+
+// доработать двусторонний дата биндинг
