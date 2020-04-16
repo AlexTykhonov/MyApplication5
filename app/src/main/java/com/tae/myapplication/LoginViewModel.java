@@ -19,20 +19,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginViewModel extends ViewModel {
 
     SharedPreferences sharedPreferences= App.getSharedPreferences();
-
+    Login login;
     public MutableLiveData<String> email = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
 
-    private MutableLiveData<Login> loginMutableLiveData;
+    public MutableLiveData<Login> loginMutableLiveData;
 
-    LiveData<Login> getUser() {
+    MutableLiveData<Login> getUser() {
         if (loginMutableLiveData == null) {
             loginMutableLiveData = new MutableLiveData<>();
         }
         return loginMutableLiveData;
     }
-
-
 
     public void loadCredentials() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -41,8 +39,11 @@ public class LoginViewModel extends ViewModel {
                 .build();
 
         Api api = retrofit.create(Api.class);
-        Login login = new Login(email.getValue(), password.getValue());
-        Call<ResponseBody> call = api.getLogin(login);
+//        login = new Login(email.getValue(), password.getValue());
+//        System.out.println("!!!!!!!!!!!!!!!!!! loginMutableLiveData: "+loginMutableLiveData.getValue());
+
+        final Login login1 = new Login(email.getValue(),password.getValue());
+        Call<ResponseBody> call = api.getLogin(login1);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -52,16 +53,22 @@ public class LoginViewModel extends ViewModel {
                 SharedPreferences.Editor prefEditor = sharedPreferences.edit();
                 prefEditor.putString("token",response.headers().get("access-token"));
                 prefEditor.apply();
-                System.out.println("THIS IS ANSWER OF THE SERVER "+response.headers().get("access-token"));
 
-               // System.out.println("This is livedata from ViewModel -> "+liveData.getValue());
+                if (response.headers().get("access-token")!= null) {
+                    loginMutableLiveData.setValue(login1);
+                }
+                else {
+                    loginMutableLiveData.setValue(null);
+                }
+
+                System.out.println("THIS IS ANSWER OF THE SERVER "+response.headers().get("access-token"));
             }
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 System.out.println("This is livedata error! -> "+t);
+                getUser().setValue(null);
             }
         });
     }
-}
 
-// доработать двусторонний дата биндинг
+}

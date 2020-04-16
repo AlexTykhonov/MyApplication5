@@ -1,4 +1,7 @@
 
-Zsquid:S1068"7Remove this unused "activityMainBinding" private field.(¬¶¹­ÿÿÿÿÿ8È‚ï¬.
-ksquid:UselessImportCheck";Remove this unused import 'android.database.DatabaseUtils'.(ÚÈ©‡øÿÿÿÿ8ÀËô¬.
-…squid:S1450"bRemove the "activityMainBinding" field and declare it as a local variable in the relevant methods.(¬¶¹­ÿÿÿÿÿ8ÀËô¬.
+N
+java:S1128"1Remove this unused import 'okhttp3.ResponseBody'.(Õ«ø8Ó‹“¨.
+„
+java:S1450"bRemove the "activityMainBinding" field and declare it as a local variable in the relevant methods.(¬¶¹­ÿÿÿÿÿ8üò’ÿ.
+]	java:S125"<This block of commented-out lines of code should be removed.(«‘Ùµúÿÿÿÿ8ÕÄ¤°.
+X	java:S125"<This block of commented-out lines of code should be removed.(ıÑŠ8ÕÄ¤°.

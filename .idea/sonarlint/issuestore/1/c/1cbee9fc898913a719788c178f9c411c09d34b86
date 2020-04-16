@@ -1,2 +1,5 @@
 
-wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ξ‚“μϊÿÿÿÿ
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ξ‚“μϊÿÿÿÿ8ύς’ÿ.
+D
+java:S1214
+""Move constants to a class or enum.(ωγ—ώÿÿÿÿ8ª―ÿ.

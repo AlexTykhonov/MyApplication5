@@ -9,5 +9,15 @@ k
 ;app/src/main/java/com/tae/myapplication/LoginViewModel.java,9/8/98ffee617dcbe40e920a2ac3e3c58676b9892725
 d
 4app/src/main/java/com/tae/myapplication/Api/Api.java,1/c/1cbee9fc898913a719788c178f9c411c09d34b86
-d
-4app/src/main/java/com/tae/myapplication/Adapter.java,7/d/7df38f21a5e3d9e0413c8d0c478c3b14366281cd
+p
+@app/src/main/java/com/tae/myapplication/managers/Controller.java,e/9/e93b68fc90063d9c0c6e8d113bb8ccba736f1833
+x
+Happ/src/main/java/com/tae/myapplication/managers/PreferencesManager.java,f/3/f3bd902e14fbc2b1e3581378e89c1bb363187edf
+`
+0app/src/main/java/com/tae/myapplication/App.java,a/6/a647731dcaa6789d5518a9135f33ffbeb3034f09
+q
+Aapp/src/main/java/com/tae/myapplication/managers/DataManager.java,2/1/2186b0bf8d217a479dcd5b3765d64d6ab6561c29
+w
+Gapp/src/main/java/com/tae/myapplication/managers/HeaderInterceptor.java,0/b/0b3a71926384f4a58d2c6ef79bff1afd828f4056
+b
+2app/src/main/java/com/tae/myapplication/Login.java,2/1/2181bf35fa9ae52e4115f777fd84d7743aa31063

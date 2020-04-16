@@ -2,7 +2,6 @@ package com.tae.myapplication;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.ObservableField;
 
 public class Login extends BaseObservable {
 
